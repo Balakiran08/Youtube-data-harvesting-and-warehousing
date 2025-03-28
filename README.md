@@ -1,39 +1,49 @@
-Introduction:
+# YouTube Data Harvesting and Analysis Tool
 
-This Python script collects data from the YouTube API, stores it in a MongoDB database, and then migrates the data to a PostgreSQL database. The collected data includes information about YouTube channels, videos, and comments.
+A comprehensive tool to harvest YouTube channel data, store it in databases, and perform analytical queries for insights.
 
-Requirements:
+##  Overview
 
-Python
+This project enables users to:
+1. **Retrieve YouTube Channel Data** via YouTube API (channel details, videos, comments).
+2. **Store Data** in MongoDB (NoSQL) for flexible storage.
+3. **Migrate to PostgreSQL** (SQL) for structured analysis.
+4. **Analyze Data** through 10 predefined business questions using Streamlit.
 
-MongoDB
+##  Features
 
-PostgreSQL
+- **YouTube API Integration**: Fetch channel, video, and comment data.
+- **MongoDB Storage**: Temporarily store raw JSON data.
+- **PostgreSQL Migration**: Structured data for SQL queries.
+- **Streamlit UI**: User-friendly interface for data collection and analysis.
+- **Predefined Analytics**: Answer key questions about channels/videos.
 
-Google API key
+## 🔧 Tools & Technologies Used
 
-Streamlit (for visualization)
+- **YouTube Data API v3**: For data retrieval.
+- **Python**: Core scripting language.
+- **MongoDB**: NoSQL database for raw data storage.
+- **PostgreSQL**: SQL database for structured analysis.
+- **Streamlit**: Web interface for user interaction.
+- **Libraries**:
+  - `googleapiclient`: YouTube API access.
+  - `pymongo`: MongoDB operations.
+  - `psycopg2`: PostgreSQL connectivity.
+  - `pandas`: Data manipulation.
+  - `streamlit`: UI components.
+
+## 📊 Analysis Questions
+
+The tool answers these 10 analytical questions:
+1. List all videos and their channels.
+2. Channels with most videos.
+3. Top 10 most viewed videos.
+4. Video comment counts.
+5. Most-liked videos.
+6. Total likes per video.
+7. Total views per channel.
+8. Channels publishing videos in 2022.
+9. Average video duration per channel.
+10. Most-commented videos.
 
 
-Use the Streamlit app to interact with the collected data, visualize it, and execute SQL queries.
-
-Code Structure:
-
-main_data2: Connects to the YouTube API and retrieves channel data, video IDs, video data, and comments data.
-channels_table: Creates a PostgreSQL table for channel data and inserts the collected data.
-
-videos_table: Creates a PostgreSQL table for video data and inserts the collected data.
-
-comment_table: Creates a PostgreSQL table for comments data and inserts the collected data.
-
-all_tables: Calls the above functions to create and populate all tables in the PostgreSQL database.
-
-Streamlit functions: streamlit_channel_data, streamlit_videos_data, and streamlit_comments_data display the data in Streamlit.
-
-Streamlit Usage:
-
-Enter a YouTube channel ID.
-Click the "Collect and Store Data" button to collect data from the YouTube API and store it in MongoDB.
-Click the "Migrate to SQL" button to migrate data from MongoDB to PostgreSQL.
-Choose a table (Channels, Videos, or Comments) to display using the Streamlit app.
-Select a predefined SQL query question to view the results.
